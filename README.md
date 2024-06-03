@@ -6,7 +6,7 @@ This is a simple CRUD application built with React.
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/react-crud-app.git
+    git clone https://github.com/Hammad-ur-Rehman/react-crud-app.git
     cd react-crud-app
     ```
 
