@@ -1,0 +1,107 @@
+/* Button.module.css */
+
+/* Common styles for all buttons */
+.button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Hover effects for all buttons */
+.button:hover {
+  filter: brightness(0.8);
+}
+
+/* Variants */
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+.btn-dark {
+  background-color: #696969;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-dark:hover {
+  background-color: #23272b;
+}
+
+/* Specific button overrides */
+/* .readbtn, .edit_btn, .createdata_btn, .del_btn, .update_btn, .create_btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit_btn:hover, .createdata_btn:hover, .readbtn:hover, .del_btn:hover, .update_btn:hover, .create_btn:hover {
+  background-color: #3bc231;
+} */
+

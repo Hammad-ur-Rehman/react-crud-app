@@ -1,79 +1,87 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FormEvent, ChangeEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateUser, getUserById } from "../api/Api";
-import Button from "../Component/Button";
-import Loading from "../Component/Loading";
-const Update = ({}) => {
-  const [loading, setloading] = useState(true);
+import { updateUser, getUserById } from "../apis/userApis";
+import Button from "../Component/Button/Button";
+import Loading from "../Component/Loader/Loading";
 
-  const { id } = useParams();
+interface InputData {
+  id: any;
+  name: string;
+  email: string;
+}
 
-  const [inputdata, setinputdata] = useState({
-    id: id,
+const Update = () => {
+  const [loading, setLoading] = useState<boolean>(true);
+  const { id } = useParams<{ id: string }>(); // Ensure id is a string
+  const numericId = id ? id : undefined; // Convert to number if id exists
+
+  const [inputdata, setInputData] = useState<InputData>({
+    id: numericId, // Use undefined if numericId is undefined
     name: "",
     email: "",
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setloading(false);
+      setLoading(false);
     }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const [originaldata, setoriginaldata] = useState(null);
-
+  const [originaldata, setOriginalData] = useState<InputData | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      setloading(true);
+      if (numericId === undefined) return; // Exit if numericId is not valid
+      setLoading(true);
       try {
-        const currentData = await getUserById(id);
-        setinputdata(currentData);
-        setoriginaldata(currentData)
+        const currentData = await getUserById(numericId);
+        console.log(currentData);
+        setInputData(currentData);
+        setOriginalData(currentData);
       } catch (error) {
-        console.error("Error fetching user data:", error);
-        setloading(false);
+        console.log(error);
+        setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [numericId]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name ,value } = e.target;
     if (name === "name") {
-      const trimmedValue = value.replace(/^\s+/, ""); // Remove leading spaces
+      const trimmedValue = value.replace(/^\s+/, "");          // Remove leading spaces
       const limitedSpacesValue = trimmedValue.replace(/\s{2,}/g, " "); // Replace multiple consecutive spaces with a single space
-      setinputdata({ ...inputdata, [name]: limitedSpacesValue });
+      setInputData({ ...inputdata, [name]: limitedSpacesValue });
     } else {
-      setinputdata({ ...inputdata, [name]: value });
+      setInputData({ ...inputdata, [name]: value });
     }
   };
 
-  const handlesubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (JSON.stringify(inputdata) === JSON.stringify(originaldata)) {
       alert("No Data Updated");
-      navigate("/");
       return;
     }
 
-    const updatedata = async () => {
+    const updateData = async () => {
+      if (numericId === undefined) return; // Exit if numericId is not valid
       try {
-        const updaterecord = await updateUser(id, inputdata);
-        setinputdata(updaterecord);
-        alert("Data Updated Successfull");
+        const updateRecord = await updateUser(numericId, inputdata);
+        setInputData(updateRecord);
+        alert("Data Updated Successfully");
         navigate("/");
       } catch (error) {
         console.log(error);
       }
     };
 
-    updatedata();
+    updateData();
   };
 
   return (
@@ -85,14 +93,14 @@ const Update = ({}) => {
           <div className="update_data">
             <h1 className="update_heading">Data Updation</h1>
 
-            <form onSubmit={handlesubmit}>
+            <form onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="id">ID:</label>
                 <input
                   type="number"
                   disabled
                   name="id"
-                  value={inputdata.id}
+                  value={inputdata.id ?? ""} // Use empty string if id is undefined
                   onChange={handleChange}
                 ></input>
               </div>
@@ -115,7 +123,7 @@ const Update = ({}) => {
                   onChange={handleChange}
                 ></input>
               </div>
-              <Button className="update_btn">Update Data</Button>
+              <Button variant="btn-secondary">Update Data</Button>
             </form>
           </div>
         </div>

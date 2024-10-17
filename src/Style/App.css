@@ -1,0 +1,167 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Read Data CSS Starts*/
+
+.display_heading {
+  text-align: center;
+  color: rgb(122, 144, 14);
+}
+
+.display_data {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 500px;
+}
+.display_data p {
+  font-size: 20px;
+}
+
+/* Read Data CSS End*/
+
+/* Updata Data CSS Start*/
+
+.update_data {
+  width: 700px;
+  height: 500px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: rgba(196, 192, 192, 0.329);
+}
+
+.update_heading {
+  text-align: center;
+  color: rgb(88, 59, 20);
+}
+
+.update_data input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* .update_data input:focus{
+
+   outline: none;
+
+ } */
+
+/* Updata Data CSS End*/
+
+/* Create Data CSS Start*/
+
+.create_data {
+  width: 700px;
+  height: 500px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: rgb(231 241 229);
+}
+
+.create_heading {
+  text-align: center;
+  color: rgb(167, 69, 27);
+}
+
+.create_data input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+/* Create Data CSS End*/
+
+/* Home Data css */
+
+.crud_homedata {
+  margin-top: 80px;
+  min-height: 100vh; /* Ensure it takes at least the full viewport height */
+  padding-bottom: 40px; /* Add padding if needed */
+  overflow-y: auto; /* Add vertical scrolling if content overflows */
+}
+
+.crud_homedata h2 {
+  margin-bottom: 15px;
+}
+
+/* Optional: Adjust the container to have some padding at the bottom */
+.container {
+  padding-bottom: 20px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.table_data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0px;
+}
+
+.table_data th,
+.table_data td {
+  border: 1px solid #f4eaea;
+  padding: 8px;
+}
+
+.table_data tr:nth-child(odd) {
+  background-color: #f9f6f6;
+}
+
+.table_data tr:hover {
+  background-color: #ddd; /* Hover effect */
+}
+
+.table_data th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+td.table_btn button {
+  margin-left: 20px;
+}
+
+.display_data p {
+  line-height: 40px;
+}
+
+.spinner {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+}
